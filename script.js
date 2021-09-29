@@ -32,7 +32,6 @@ window.addEventListener('load',function(){
         let option = selector.value;
         if(option === '1')
         {
-            block.style.borderRadius = '0%';
             block.style.transform = `rotate(0deg)`;
             block.style.transform = `scale(${scaleCoeff}) rotate(${rotateDeg}deg)`;
         }
@@ -61,7 +60,7 @@ window.addEventListener('load',function(){
     let rgbaA = document.getElementById('rgba-a');
 
     let rgbaInputs = document.querySelectorAll('.rgba-container input');
-    rgbaInputs.forEach(function(element){
+    rgbaInput.forEach(function(element){
         element.addEventListener('input',function(){
             block.style.backgroundColor = `rgba(${rgbaR.value}, ${rgbaG.value},${rgbaB.value},${rgbaA.value})`;
         })
