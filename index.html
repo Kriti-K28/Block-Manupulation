@@ -24,7 +24,7 @@
            <div class="wrapper horizontal">
              <label for="pos-x">
                 <span>0</span>
-                <span>800</span>
+                <span>600</span>
               </label>
               <input type="range" name="" id="pos-x" min="0" max="600" value="0">
              
@@ -69,6 +69,7 @@
           
              <label for="hex">#</label>
              <input type="text" name="" id="hex">
+             select: <input type="color" id="colorpicker" value="#ff0000">
            </div>
        </div>
        <div class="block">
@@ -83,6 +84,18 @@
                <input type="range" name="" id="rgba-a" min="0" max="255" value="1">
                <label for="rgba-a">a</label>
            </div>
+       </div>
+       <div class="block">
+        <h3 class="block-heading">Gradient</h3>
+        <div class="wrapper center gradient-container">
+        <input type="color" id="gradientPicker1" value="#ff0000">
+        <input type="color" id="gradientPicker2" value="#ff0000">
+        <label for="gradient-angle">angle</label>
+        <input type="range" name="" id="gradient-angle" min="0" max="180" value="0" step="1">
+        </div>
+       </div>
+       <div>
+        
        </div>
     </div>
     <div class="container">
