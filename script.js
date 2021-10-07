@@ -51,7 +51,8 @@ window.addEventListener('load',function(){
     let hex = document.getElementById('hex');
     hex.addEventListener('keyup',function(e){
         if(e.key === 'Enter')
-            block.style.backgroundColor = `#${hex.value}`;
+            {block.style.backgroundColor = `#${hex.value}`;
+            clearGradient();}
     })
 
     let rgbaR = document.getElementById('rgba-r');
@@ -63,12 +64,14 @@ window.addEventListener('load',function(){
     rgbaInputs.forEach(function(element){
         element.addEventListener('input',function(){
             block.style.backgroundColor = `rgba(${rgbaR.value}, ${rgbaG.value},${rgbaB.value},${rgbaA.value})`;
+            clearGradient();
         })
     })
 
     let colorPicker = document.getElementById('colorpicker');
     colorPicker.addEventListener('input', function(){
         block.style.backgroundColor = colorPicker.value;
+        clearGradient();
     })
 
     let gradient1 = document.getElementById('gradientPicker1');
@@ -82,5 +85,73 @@ window.addEventListener('load',function(){
              'deg  , ' + gradient1.value + ', ' + gradient2.value + ')';
         })
     })
+
+    document.getElementById('animation-1').addEventListener('click', function(){
+        simpleAnimationHorizontal(block);
+    })
+    document.getElementById('animation-2').addEventListener('click', function(){
+        simpleAnimationVertical(block);
+    })
+
+
+
+    
     
 })
+
+function clearGradient(){
+    block.style.backgroundImage = 'none';
+}
+
+function simpleAnimationHorizontal(block) {
+    console.log(block);
+    let id = null;
+    let pos = 0, flag = 0, current = block.style.left;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+        if (pos == 0 && flag == 1) {
+        clearInterval(id);
+        } else if(flag == 0 && pos<350){
+        pos++; 
+        
+
+        }
+        else if(pos == 350 && flag == 0){
+        flag=1;
+        }
+        else{
+            pos--;
+            
+        }
+        block.style.left = current + pos + "px";
+        console.log(block.style.left); 
+        
+    }
+}
+
+function simpleAnimationVertical(block) {
+    console.log(block);
+    let id = null;
+    let pos = 0, flag = 0, current = block.style.top;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+        if (pos == 0 && flag == 1) {
+        clearInterval(id);
+        } else if(flag == 0 && pos<350){
+        pos++; 
+        
+
+        }
+        else if(pos == 350 && flag == 0){
+        flag=1;
+        }
+        else{
+            pos--;
+            
+        }
+        block.style.top = current - pos + "px"; 
+        console.log(block.style.top)
+    }
+}
